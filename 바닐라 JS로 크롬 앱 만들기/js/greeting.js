@@ -1,6 +1,3 @@
-// const loginForm = document.querySelector("#login-form");
-// const loginInput = document.querySelector("#login-form input");
-
 const loginForm = document.getElementById("login-form");
 const loginInput = loginForm.querySelector("input");
 const greeting = document.querySelector("#greeting");
