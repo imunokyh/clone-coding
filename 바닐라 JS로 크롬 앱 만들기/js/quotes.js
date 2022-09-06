@@ -8,8 +8,7 @@ const quotes = [
     author: "John Lennon",
   },
   {
-    quote:
-      "The world is a book and those wh o do not travel read only one page.",
+    quote: "The world is a book and those wh o do not travel read only one page.",
     author: "Saint Augustine",
   },
   {
