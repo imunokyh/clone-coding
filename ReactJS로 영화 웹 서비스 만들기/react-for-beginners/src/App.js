@@ -1,50 +1,51 @@
-// import Button from "./Button"
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
-function Hello() {
-  function byFn() {
-    console.log("bye :(");
-  }
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import Home from "./routes/Home"
+import Detail from "./routes/Detail";
 
-  function hiFn() {
-    console.log("created :)");
-    return byFn;
-  }
-    useEffect(hiFn, []);
-  return <h1>Hello</h1>;
-}
+// // Coin Tracker
+// function App() {
+//   const [loading, setLoading] = useState(true);
+//   const [coins, setCoins] = useState([]);
+//   useEffect(() => {
+//     fetch("https://api.coinpaprika.com/v1/tickers")
+//       .then((response) => response.json())
+//       .then((json) => {
+//         setCoins(json);
+//         setLoading(false);
+//       });
+//   }, []);
+//   return <div>
+//     <h1>The Coins! {loading ? "" : `(${coins.length})`}</h1>
+//     {loading ? <strong>Loading...</strong> : (
+//       <select>
+//         {coins.map((coin) => (
+//           <option>
+//             {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
+//           </option>
+//         ))}
+//       </select>
+//     )}
+//   </div>;
+// }
+// // ~Coin Tracker
 
 function App() {
-  // const [counter, setValue] = useState(0);
-  // const [keyword, setKeyword] = useState("");
-  // const onClick = () => setValue((prev) => prev + 1);
-  // const onChange = (event) => setKeyword(event.target.value);
-  // console.log("i run all the time");
-  // useEffect(() => {
-  //   console.log("I run only once.");
-  // }, []);
-  // useEffect(() => {
-  //   console.log("I run when 'keyword' changes.");
-  // }, [keyword]);
-  // useEffect(() => {
-  //   console.log("I run when 'counter' changes.");
-  // }, [counter]);
-  // return (
-  //   <div>
-  //     <input value={keyword} onChange={onChange} type="text" placeholder="Search here..."/>
-  //     <h1>{counter}</h1>
-  //     <button onClick={onClick}>click me</button>
-  //   </div>
-  // );
-
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
-  return (
-    <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
-    </div>
-  );
+    return <Router>
+        <Switch>
+            <Route path="/movie/:id">
+                <Detail />
+            </Route>
+            <Route path="/">
+                <Home />
+            </Route>
+        </Switch>
+    </Router>
 }
 
 export default App;
